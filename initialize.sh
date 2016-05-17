@@ -23,8 +23,14 @@ cp ./files/hello.py /home/box/web/
 cp ./conf/hello.py /home/box/web/etc/
 sudo ln -sf /home/box/web/etc/hello.py /etc/gunicorn.d/hello.py
 
-gunicorn -c /etc/gunicorn.d/hello.py -b 0.0.0.0:8080 hello:app &
-ln -sf ~/web/stepic_course_web/ask ~/web/ask
+#gunicorn -c /etc/gunicorn.d/hello.py -b 0.0.0.0:8080 hello:app &
+
+cp -r /home/box/stepic_course_web/ask /home/box/web
+cd /home/box/web/ask
+gunicorn ask.wsgi:application --bind 0.0.0.0:8000 &
+
+
+#ln -sf ~/web/stepic_course_web/ask ~/web/ask
 #django-admin startproject ask
 #cd ask
 #python manage.py startapp qa

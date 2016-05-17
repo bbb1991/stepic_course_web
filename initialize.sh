@@ -21,17 +21,17 @@ sudo ln -s /home/box/web/etc/nginx.conf /etc/nginx/nginx.conf
 # Configure Gunicorn and echo WSGI server
 cp ./files/hello.py /home/box/web/
 cp ./conf/hello.py /home/box/web/etc/
-sudo ln -s /home/box/web/etc/hello.py /etc/gunicorn.d/hello.py
+sudo ln -sf /home/box/web/etc/hello.py /etc/gunicorn.d/hello.py
 
-gunicorn -c /etc/gunicorn.d/hello.py -b 0.0.0.0:8080 hello.py &
-cd /home/box/web
-django-admin startproject ask
-cd ask
-python manage.py startapp qa
-echo -e """
-from django.http import response
+gunicorn -c /etc/gunicorn.d/hello.py -b 0.0.0.0:8080 hello:app &
+ln -sf ~/web/stepic_course_web/ask ~/web/ask
+#django-admin startproject ask
+#cd ask
+#python manage.py startapp qa
+#echo -e """
+#from django.http import response
 
-def test(response, *args, **kwargs):
-    return HttpResponse('OK')
+#def test(response, *args, **kwargs):
+#    return HttpResponse('OK')
 
-""" >> /home/box/web/ask/qa/views.py
+#$$#$""" >> /home/box/web/ask/qa/views.py

@@ -4,6 +4,9 @@ sudo apt-get update
 # install nginx
 sudo apt-get install nginx
 
+# update Django
+sudo pip install --upgrade django
+sudo nginx
 # creating project structure
 mkdir -p /home/box/web/etc/
 mkdir -p /home/box/web/uploads/

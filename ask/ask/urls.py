@@ -23,6 +23,7 @@ urlpatterns = [
     # url(r'^login/', include('')),
     # url(r'^signup/', include('')),
     url(r'^question/\d+', views.test),
+    url(r'^$', views.test),  # WTF
     # url(r'^ask/', include('')),
     # url(r'^popular/', include('')),
     # url(r'^new/', include(''))

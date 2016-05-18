@@ -31,6 +31,6 @@ cp -r /home/box/stepic_course_web/ask /home/box/web
 cd /home/box/web/ask
 
 # Deploying echo server and Django project
-gunicorn hello:app & --bind 0.0.0.0:8000 &
+gunicorn hello:app & --bind 0.0.0.0:8080 &
 gunicorn ask.wsgi:application --bind 0.0.0.0:8000 &
 

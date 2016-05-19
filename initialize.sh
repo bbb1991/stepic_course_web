@@ -51,4 +51,4 @@ python manage.py migrate
 # gunicorn ask.wsgi -b 0.0.0.0:8000 &
 sudo ln -sf /home/box/web/etc/gunicorn_hello.conf /etc/gunicorn.d/test-wsgi
 sudo ln -sf /home/box/web/etc/gunicorn_django.conf /etc/gunicorn.d/test-django
-udo /etc/init.d/gunicorn restart
+sudo /etc/init.d/gunicorn restart

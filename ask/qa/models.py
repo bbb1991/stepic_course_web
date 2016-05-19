@@ -5,21 +5,23 @@ from django.db import models
 
 
 # Create your models here.
-class QuestionManager(models.Model):
-    pass
-
-
 class Question(models.Model):
     title = models.CharField(max_length=50)
-    text = models.TextField(blank=True)
-    added_at = models.DateTimeField(auto_now_add=True, auto_now=True, editable=True)
-    rating = models.IntegerField()
-    author = User()
-    objects = QuestionManager()
+    text = models.CharField(max_length=100)
+    added_at = models.DateTimeField(auto_now_add=True)
+    rating = models.IntegerField(default=0)
+    author = models.CharField(max_length=20)
+    likes = models.ForeignKey(User, null=True)
+
+    def __unicode__(self):
+        return self.title
 
 
 class Answer(models.Model):
-    text = models.TextField()
-    added_at = models.DateTimeField(auto_now_add=True, auto_now=True, editable=True)
-    question = Question()
-    author = User()
+    text = models.CharField(max_length=100)
+    added_at = models.DateTimeField(auto_now_add=True)
+    question = models.ForeignKey(Question, null=True)
+    author = models.CharField(max_length=20)
+
+    def __unicode__(self):  # __unicode__ on Python 2
+        return self.text

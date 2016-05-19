@@ -48,5 +48,7 @@ python manage.py migrate
 
 # Deploying echo server and Django project
 # gunicorn hello:app & --bind 0.0.0.0:8080 &
-gunicorn ask.wsgi -b 0.0.0.0:8000 &
-
+# gunicorn ask.wsgi -b 0.0.0.0:8000 &
+sudo ln -sf /home/box/web/etc/gunicorn_hello.conf /etc/gunicorn.d/test-wsgi
+sudo ln -sf /home/box/web/etc/gunicorn_django.conf /etc/gunicorn.d/test-django
+udo /etc/init.d/gunicorn restart

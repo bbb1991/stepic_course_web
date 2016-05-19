@@ -5,12 +5,17 @@ from django.db import models
 
 
 # Create your models here.
+class QuestionManager(models.Model):
+    pass
+
+
 class Question(models.Model):
     title = models.CharField(max_length=50)
     text = models.TextField(blank=True)
     added_at = models.DateTimeField(auto_now_add=True, auto_now=True, editable=True)
     rating = models.IntegerField()
     author = User()
+    objects = QuestionManager()
 
 
 class Answer(models.Model):

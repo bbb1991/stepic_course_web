@@ -36,7 +36,7 @@ cd /home/box/web/ask
 #sudo apt-get install mysql-client #sql -клиент
 
 sudo apt-get install python-mysqldb #сама библиотека 
-pip install pymysql
+sudo -H pip install pymysql
 
 # Start daemon
 sudo /etc/init.d/mysql start
@@ -47,6 +47,6 @@ mysql -uroot -e "CREATE DATABASE ask;"
 python manage.py migrate
 
 # Deploying echo server and Django project
-gunicorn hello:app & --bind 0.0.0.0:8080 &
-gunicorn ask.wsgi:application --bind 0.0.0.0:8000 &
+# gunicorn hello:app & --bind 0.0.0.0:8080 &
+gunicorn ask.wsgi -b 0.0.0.0:8000 &
 

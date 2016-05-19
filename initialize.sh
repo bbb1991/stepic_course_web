@@ -36,6 +36,7 @@ cd /home/box/web/ask
 #sudo apt-get install mysql-client #sql -клиент
 
 sudo apt-get install python-mysqldb #сама библиотека 
+pip install pymysql
 
 # Start daemon
 sudo /etc/init.d/mysql start

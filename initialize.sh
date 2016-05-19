@@ -30,6 +30,17 @@ sudo ln -s /home/box/web/etc/nginx.conf /etc/nginx/nginx.conf
 cp -r /home/box/stepic_course_web/ask /home/box/web
 cd /home/box/web/ask
 
+#install myysql
+#sudo apt-get install mysql-server #sql - сервер
+
+#sudo apt-get install mysql-client #sql -клиент
+
+sudo apt-get install python-mysqldb #сама библиотека 
+mysql -uroot -e "CREATE DATABASE ask;"
+
+# Create migrate
+python manage.py migrate
+
 # Deploying echo server and Django project
 gunicorn hello:app & --bind 0.0.0.0:8080 &
 gunicorn ask.wsgi:application --bind 0.0.0.0:8000 &

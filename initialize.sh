@@ -36,6 +36,10 @@ cd /home/box/web/ask
 #sudo apt-get install mysql-client #sql -клиент
 
 sudo apt-get install python-mysqldb #сама библиотека 
+
+# Start daemon
+sudo /etc/init.d/mysql start
+
 mysql -uroot -e "CREATE DATABASE ask;"
 
 # Create migrate
